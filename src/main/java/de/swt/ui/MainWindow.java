@@ -3,15 +3,17 @@ package de.swt.ui;
 import de.swt.events.MainWindowHandler;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
-import java.util.EventListener;
 
 
-public class MainWindow extends Frame implements EventListener {
+public class MainWindow extends Frame{
 
         public MainWindow(){
             setSize(500,300);
             setTitle("AWT DEMO");
+
 
         }
 
@@ -33,6 +35,4 @@ public class MainWindow extends Frame implements EventListener {
         public void setHandler(MainWindowHandler mainWindowHandler) {
             addWindowListener(mainWindowHandler);
          }
-
-
 }
