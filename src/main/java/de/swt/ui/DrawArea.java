@@ -18,6 +18,7 @@ public class DrawArea extends Canvas {
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        if (mouse.x == 0 && mouse.y == 0) return;
         Ellipse2D ellipse = new Ellipse2D.Float(
                 (float) mouse.x, (float) mouse.y,
                 5.0F, 5.0F
@@ -25,6 +26,6 @@ public class DrawArea extends Canvas {
 
         System.out.printf(" X:%s Y:%s%n", mouse.x, mouse.y);
         g2d.draw(ellipse);
-        this.repaint();
+
     }
 }
