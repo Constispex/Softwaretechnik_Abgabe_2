@@ -5,13 +5,10 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class DrawArea extends Canvas {
-    private final int WIDTH = 200;
-    private final int HEIGHT = 200;
     private MouseHandler mouse = new MouseHandler();
 
     public DrawArea(){
         this.addMouseListener(mouse);
-        this.setSize(WIDTH, HEIGHT);
         this.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
         System.out.printf("Draw Area:%nX:%s Y:%s%n", getX(), getY());

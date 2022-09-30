@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Softwaretechnik_Abgabe_2" />
         <module name="AWT-Demo" />
       </profile>
     </annotationProcessing>
