@@ -4,10 +4,10 @@ import de.swt.events.MainWindowHandler;
 import de.swt.ui.MainWindow;
 
 /**
- * AWT-DEMO 2022
+ * Softwaretechnik | Abgabe 2
  * @Author: Johannes Fritzsch
  *
- * Das Projekt AWT-Demo dient als Schablone für eigene AWT-Programme
+ *
  */
 public class Program {
 
