@@ -20,7 +20,7 @@ public class DrawArea extends Canvas {
     public void paint(Graphics g) {
 
         int rectWidth = 20;
-        int rectHeight = 20;
+        int rectHeight = 30;
 
 
         Graphics2D g2d = (Graphics2D) g;
