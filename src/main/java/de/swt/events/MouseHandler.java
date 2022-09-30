@@ -6,20 +6,24 @@ import java.awt.event.MouseEvent;
 
 public class MouseHandler extends MouseAdapter {
 
-    private static int count=0;
+    private static int count=1;
     public int x;
     public int y;
     @Override
     public void mouseClicked(MouseEvent e) {
+        DrawArea da = (DrawArea) e.getSource();
+        if (e.getClickCount() == 2 && count < 3) {
+            this.x = e.getX();
+            this.y = e.getY();
 
-            if (e.getClickCount() == 2) {
-                this.x = e.getX();
-                this.y = e.getY();
-                count++;
-            }
-
-            DrawArea da = (DrawArea) e.getSource();
             da.paint(da.getGraphics());
+            System.out.printf("count if:%s", count);
+            count++;
+        } else if (e.getClickCount() == 2){
+            da.clearComponents();
+            System.out.printf("count else:%s", count);
+            count = 1;
         }
+    }
 
 }
