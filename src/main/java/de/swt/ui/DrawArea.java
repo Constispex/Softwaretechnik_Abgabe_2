@@ -18,10 +18,15 @@ public class DrawArea extends Canvas {
     }
     @Override
     public void paint(Graphics g) {
+
+        int rectWidth = 20;
+        int rectHeight = 20;
+
+
         Graphics2D g2d = (Graphics2D) g;
         if (mouse.x == 0 && mouse.y == 0) return;
 
-        Rectangle rectangle = new Rectangle(mouse.x - 100, mouse.y - 100, 200, 200);
+        Rectangle rectangle = new Rectangle(mouse.x - rectWidth/2, mouse.y - rectHeight/2, rectWidth, rectHeight);
 
         System.out.printf(" X:%s Y:%s%n", mouse.x, mouse.y);
         g2d.draw(rectangle);

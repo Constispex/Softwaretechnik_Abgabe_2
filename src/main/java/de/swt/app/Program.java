@@ -6,8 +6,8 @@ import de.swt.ui.MainWindow;
 
 /**
  * Softwaretechnik | Abgabe 2
- * @Author: Johannes Fritzsch
- *
+ * @author Johannes Fritzsch m30113
+ * @author Cody Radom m30118
  *
  */
 public class Program {
