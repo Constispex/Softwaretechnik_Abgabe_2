@@ -8,15 +8,13 @@ import java.awt.geom.Ellipse2D;
 
 
 public class MainWindow extends JFrame {
-
     public MainWindow(){
         setSize(500,300);
         setTitle("Softwaretechnik Abgabe 2");
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
-    }
 
+    }
 
     @Override
     public void paint(Graphics g) {

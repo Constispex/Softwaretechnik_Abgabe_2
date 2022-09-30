@@ -2,10 +2,8 @@ package de.swt.app;
 
 import de.swt.events.MainWindowHandler;
 import de.swt.events.MouseHandler;
+import de.swt.ui.DrawArea;
 import de.swt.ui.MainWindow;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
  * Softwaretechnik | Abgabe 2
@@ -23,7 +21,10 @@ public class Program {
     public static void main(String[] args){
             mainWindowHandler = new MainWindowHandler();
 
+            DrawArea da = new DrawArea();
             mainWindow = new MainWindow();
+            mainWindow.add(da);
+            da.addMouseListener(new MouseHandler());
             mainWindow.setHandler(mainWindowHandler);
             mainWindow.showFrame();
     }
