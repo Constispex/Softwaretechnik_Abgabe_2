@@ -10,6 +10,9 @@ public class MouseHandler extends MouseAdapter {
     private static int count = 1;
     public int x;
     public int y;
+
+    public int moveX;
+    public int moveY;
     @Override
     public void mouseClicked(MouseEvent e) {
         DrawArea da = (DrawArea) e.getSource();
@@ -19,13 +22,19 @@ public class MouseHandler extends MouseAdapter {
             this.y = e.getY();
 
             da.paint(da.getGraphics());
-            System.out.printf("count if:%s", count);
             count++;
         } else if (e.getClickCount() == 2){
             da.clearComponents();
-            System.out.printf("count else:%s", count);
             count = 1;
         }
     }
 
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        DrawArea da = (DrawArea) e.getSource();
+        this.moveX = e.getX();
+        this.moveY = e.getY();
+        System.out.printf("moveX: %s, moveY:%s%n", moveX, moveY);
+        da.paint(da.getGraphics());
+    }
 }

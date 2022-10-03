@@ -1,6 +1,7 @@
 package de.swt.ui;
 
 import de.swt.events.MouseHandler;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
@@ -8,25 +9,38 @@ public class DrawArea extends Canvas {
     private final int WIDTH = 200;
     private final int HEIGHT = 200;
     private MouseHandler mouse = new MouseHandler();
+    private String coordinates="";
+
 
     public DrawArea(){
         this.addMouseListener(mouse);
         this.setSize(WIDTH, HEIGHT);
         this.setBackground(Color.LIGHT_GRAY);
+
         this.setVisible(true);
-        System.out.printf("Draw Area:%nX:%s Y:%s%n", getX(), getY());
     }
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        if (mouse.x == 0 && mouse.y == 0) return;
+        int x = mouse.x;
+        int y = mouse.y;
+        StringBuilder coordinates = new StringBuilder();
+
+        if (x == 0 && y == 0) return; // Erstes Element wird nicht erstellt
+        // create ellipse
         Ellipse2D ellipse = new Ellipse2D.Float(
-                (float) mouse.x, (float) mouse.y,
+                (float) x, (float) y,
                 5.0F, 5.0F
         );
-
-        System.out.printf(" X:%s Y:%s%n", mouse.x, mouse.y);
         g2d.draw(ellipse);
+        System.out.printf(" X:%s Y:%s%n", x, y);
+
+        this.coordinates = coordinates.append("X: ").append(x).append("Y: ").append(y).toString();
+
+
+        g2d.clearRect((int) (getWidth() * 0.8), (int) (getHeight() * 0.95d), getWidth(), getHeight());
+        g2d.drawRect((int) (getWidth() * 0.8), (int) (getHeight() * 0.95d), getWidth(), getHeight());
+        g2d.drawString(this.coordinates, (int) (getWidth() * 0.8), (int) (getHeight() * 0.99d));
 
     }
 
