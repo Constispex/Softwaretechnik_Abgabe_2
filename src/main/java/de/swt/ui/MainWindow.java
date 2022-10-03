@@ -10,18 +10,16 @@ public class MainWindow extends JFrame {
         setSize(500,300);
         setTitle("Softwaretechnik Abgabe 2");
         this.setBackground(Color.LIGHT_GRAY);
-        this.setVisible(true);
     }
 
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.BLACK);
         this.repaint();
     }
 
     public void showFrame(){
-            this.setVisible(true);
+        this.setVisible(true);
     }
 
     public void setHandler(MainWindowHandler mainWindowHandler) {

@@ -1,37 +1,31 @@
 package de.swt.ui;
 
+import de.swt.events.MenuHandler;
+
 import java.awt.*;
 
 public class WindowMenuBar {
 
-    Frame _thisWindow;
+    private final Frame _thisWindow;
+    private Canvas _drawArea; //meh
 
-    public WindowMenuBar(Frame window){
+    public WindowMenuBar(Frame window, Canvas drawArea){
         _thisWindow = window;
+        this._drawArea = drawArea;
     }
+
     public void showMenu() {
         //create a menu bar
         final MenuBar menuBar = new MenuBar();
 
-        //create menus
         Menu colorMenu = new Menu("Color");
+        MenuItem menuColorCicle = new MenuItem("Cicle Background Color");
+        menuColorCicle.addActionListener(new MenuHandler(MenuHandler.MenuEvent.BG_COLOR, _thisWindow, _drawArea)); //drawArea uebergeben = meh
 
-        //create menu items
-        MenuItem menuItem1 = new MenuItem("RED");
+        colorMenu.add(menuColorCicle);
 
-        MenuItem menuItem2 = new MenuItem("BLUE");
-
-        MenuItem menuItem3 = new MenuItem("GREY");
-
-        colorMenu.add(menuItem1);
-        colorMenu.add(menuItem2);
-        colorMenu.add(menuItem3);
-
-
-        //add menu to menubar
         menuBar.add(colorMenu);
 
-        //add menubar to the frame
         _thisWindow.setMenuBar(menuBar);
         _thisWindow.setVisible(true);
     }
