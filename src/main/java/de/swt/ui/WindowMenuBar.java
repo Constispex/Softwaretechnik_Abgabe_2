@@ -20,7 +20,7 @@ public class WindowMenuBar {
 
         Menu colorMenu = new Menu("Color");
         MenuItem menuColorCicle = new MenuItem("Cicle Background Color");
-        menuColorCicle.addActionListener(new MenuHandler(MenuHandler.MenuEvent.BG_COLOR, _thisWindow, _drawArea)); //drawArea uebergeben = meh
+        menuColorCicle.addActionListener(new MenuHandler(MenuHandler.MenuEvent.BG_COLOR, _drawArea)); //drawArea uebergeben = meh
 
         colorMenu.add(menuColorCicle);
 
