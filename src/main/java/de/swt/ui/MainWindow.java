@@ -10,6 +10,7 @@ public class MainWindow extends JFrame {
         setSize(500,300);
         setTitle("Softwaretechnik Abgabe 2");
         this.setBackground(Color.LIGHT_GRAY);
+        this.setVisible(true);
     }
 
     @Override
@@ -18,6 +19,9 @@ public class MainWindow extends JFrame {
         this.repaint();
     }
 
+    /**
+     *
+     */
     public void showFrame(){
         this.setVisible(true);
     }

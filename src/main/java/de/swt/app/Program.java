@@ -10,10 +10,14 @@ import de.swt.ui.WindowMenuBar;
  * @author Johannes Fritzsch m30113
  * @author Cody Radom m30118
  *
- * @version 1.1.0
+ *
  */
 public class Program {
 
+    /**
+     * Die Main Methode startet das Programm und erzeugt das Fenster.
+     * @param args wird nicht benutzt
+     */
     public static void main(String[] args){
         MainWindowHandler mainWindowHandler = new MainWindowHandler();
         DrawArea da = new DrawArea();

@@ -11,6 +11,4 @@ public class MainWindowHandler extends WindowAdapter {
         e.getWindow().dispose();
         System.exit(0);
     }
-
-
 }

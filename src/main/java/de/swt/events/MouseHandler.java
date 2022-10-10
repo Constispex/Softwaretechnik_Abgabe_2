@@ -33,5 +33,4 @@ public class MouseHandler extends MouseAdapter {
             count = 1;
         }
     }
-
 }
