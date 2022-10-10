@@ -18,10 +18,10 @@ public class DrawArea extends Canvas {
         Graphics2D g2d = (Graphics2D) g;
         clearComponents();
         System.out.println("DA repainted");
-        for (int[] point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
-            if(point[0] == 0 && point[1] == 0) continue;
+        for (Point point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
+            if(point == null) continue;
             g2d.draw(new Ellipse2D.Float(
-                    (float) point[0], (float) point[1],
+                    (float) point.x, (float) point.y,
                     5.0F, 5.0F
                     )
             );
