@@ -55,11 +55,10 @@ public class DrawArea extends Canvas {
             StringBuilder coordinates = new StringBuilder();
             String coordinatesStr = coordinates.append("X: ").append(point.x).append(" Y: ").append(point.y).toString();
 
-
+            // Display coordinates and clear old ones
             g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
             g2d.clearRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
             g2d.drawString(coordinatesStr,dsplyCooX, dsplyCooY);
-
         }
     }
 

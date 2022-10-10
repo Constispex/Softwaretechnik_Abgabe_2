@@ -26,14 +26,11 @@ public class MouseHandler extends MouseAdapter {
 
         if (e.getClickCount() == 2 && count < 3) { // save both points
             points[count-1] = new Point(e.getX(), e.getY());
-
             da.paint(da.getGraphics());
-            System.out.printf("count if:%s", count);
             count++;
 
         } else if (e.getClickCount() == 2){ //reset
             da.clearComponents();
-            System.out.printf("count else:%s", count);
             points[0] = null;
             points[1] = null;
             count = 1;

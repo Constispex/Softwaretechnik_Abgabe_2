@@ -1,6 +1,7 @@
 package de.swt.events;
 
 import de.swt.ui.DrawArea;
+import de.swt.ui.RadiusWindow;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,13 +27,15 @@ public class MenuHandler implements ActionListener{
             Color.MAGENTA
     };
     private static short _count = 0;
+    private Frame _frame;
 
     /**
      *
      * @param menuEvent
      * @param drawArea
      */
-    public MenuHandler(MenuEvent menuEvent, DrawArea drawArea){
+    public MenuHandler(Frame _frame, MenuEvent menuEvent, DrawArea drawArea){
+        this._frame = _frame;
         _eventPath = menuEvent;
         this._da = drawArea;
     }
@@ -57,6 +60,7 @@ public class MenuHandler implements ActionListener{
     }
 
     public void showRadiusDialogue(){
+        RadiusWindow radiusWindow = new RadiusWindow(this._frame, _da::setRadius);
 
     }
 
@@ -67,10 +71,19 @@ public class MenuHandler implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Action recieved!");
-        switch(_eventPath){ //Vorbereitung fuer weitere MenuItems
-            case BG_COLOR -> switchBackgroundColor();
-            case RADIUS -> showRadiusDialogue();
-            case default -> System.out.println("The provided MenuEvent has not yet been implemented.");
-        }
+//        switch(_eventPath){ //Vorbereitung fuer weitere MenuItems
+//            case BG_COLOR:
+//                switchBackgroundColor();
+//                break;
+//            case RADIUS:
+//                showRadiusDialogue();
+//                break;
+//            case default:
+//                System.out.println("The provided MenuEvent has not yet been implemented.");
+//                break;
+//        }
+
+        if (_eventPath == MenuEvent.BG_COLOR) switchBackgroundColor();
+        else if (_eventPath == MenuEvent.RADIUS) showRadiusDialogue();
     }
 }

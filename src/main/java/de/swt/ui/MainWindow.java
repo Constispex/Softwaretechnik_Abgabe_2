@@ -1,7 +1,6 @@
 package de.swt.ui;
 
 import de.swt.events.MainWindowHandler;
-import javax.swing.*;
 import java.awt.*;
 
 /**

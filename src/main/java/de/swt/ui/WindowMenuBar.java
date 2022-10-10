@@ -23,13 +23,17 @@ public class WindowMenuBar {
         //create a menu bar
         final MenuBar menuBar = new MenuBar();
 
-        Menu colorMenu = new Menu("Color");
-        MenuItem menuColorCicle = new MenuItem("Cicle Background Color");
-        menuColorCicle.addActionListener(new MenuHandler(MenuHandler.MenuEvent.BG_COLOR, _drawArea)); //drawArea uebergeben = meh
+        Menu settingsMenu = new Menu("Settings");
+        MenuItem menuColorCycle = new MenuItem("Cycle Background Color");
+        MenuItem changeRadius = new MenuItem("Change Radius");
 
-        colorMenu.add(menuColorCicle);
+        menuColorCycle.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.BG_COLOR, _drawArea)); //drawArea uebergeben = meh
+        menuColorCycle.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.RADIUS, _drawArea));
 
-        menuBar.add(colorMenu);
+        settingsMenu.add(menuColorCycle);
+        settingsMenu.add(changeRadius);
+
+        menuBar.add(settingsMenu);
 
         _thisWindow.setMenuBar(menuBar);
         _thisWindow.setVisible(true);
