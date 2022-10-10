@@ -1,6 +1,8 @@
 package de.swt.ui;
 
-import de.swt.events.MenuHandler;
+import de.swt.events.BackgroundHandler;
+import de.swt.events.RadiusDialogHandler;
+
 import java.awt.*;
 
 /**
@@ -27,8 +29,8 @@ public class WindowMenuBar {
         MenuItem menuColorCycle = new MenuItem("Cycle Background Color");
         MenuItem changeRadius = new MenuItem("Change Radius");
 
-        menuColorCycle.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.BG_COLOR, _drawArea)); //drawArea uebergeben = meh
-        changeRadius.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.RADIUS, _drawArea));
+        menuColorCycle.addActionListener(new BackgroundHandler(_thisWindow, _drawArea)); //drawArea uebergeben = meh
+        changeRadius.addActionListener(new RadiusDialogHandler(_thisWindow, _drawArea));
 
         settingsMenu.add(menuColorCycle);
         settingsMenu.add(changeRadius);

@@ -41,14 +41,14 @@ public class DrawArea extends Canvas {
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         clearComponents();
-        System.out.println("DA repainted");
 
         int dsplyCooX = getWidth() - 80;
         int dsplyCooY = getHeight() - 10;
+
         for (Point point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
             if(point == null) continue;
             g2d.draw(new Ellipse2D.Float(
-                    (float) point.x, (float) point.y,
+                    (float) point.x - _radius, (float) point.y - _radius,
                     _radius, _radius
                     )
             );
