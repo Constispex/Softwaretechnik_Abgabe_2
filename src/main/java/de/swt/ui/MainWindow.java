@@ -16,6 +16,7 @@ public class MainWindow extends JFrame {
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+
         this.repaint();
     }
 
