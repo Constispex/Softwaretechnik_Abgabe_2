@@ -10,16 +10,12 @@ public class MouseHandler extends MouseAdapter {
 
     private static int count = 1;
     public Point[] points = new Point[2];
-//    public int x;
-//    public int y;
     @Override
     public void mouseClicked(MouseEvent e) {
         DrawArea da = (DrawArea) e.getSource();
 
         if (e.getClickCount() == 2 && count < 3) { //Speicherung beider Punkte
             points[count-1] = new Point(e.getX(), e.getY());
-//            this.x = e.getX();
-//            this.y = e.getY();
 
             da.paint(da.getGraphics());
             System.out.printf("count if:%s", count);

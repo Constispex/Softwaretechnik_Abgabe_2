@@ -45,21 +45,11 @@ public class DrawArea extends Canvas {
             String coordinatesStr = coordinates.append("X: ").append(point.x).append(" Y: ").append(point.y).toString();
 
 
-            g2d.clearRect((int) (getWidth() * 0.8), (int) (getHeight() * 0.95d), getWidth(), getHeight());
             g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
+            g2d.clearRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
             g2d.drawString(coordinatesStr,dsplyCooX, dsplyCooY);
 
-
-
         }
-
-//        if (MOUSE.x == 0 && MOUSE.y == 0) return;
-//        Ellipse2D ellipse = new Ellipse2D.Float(
-//                (float) MOUSE.x, (float) MOUSE.y,
-//                5.0F, 5.0F
-//        );
-//        //System.out.printf(" X:%s Y:%s%n", mouse.x, mouse.y);
-//        g2d.draw(ellipse);
     }
 
     /**
