@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *
+ */
 public class MenuHandler implements ActionListener{
 
     private final MenuEvent _eventPath;
@@ -22,16 +25,26 @@ public class MenuHandler implements ActionListener{
     };
     private static short _count = 0;
 
+    /**
+     *
+     * @param menuEvent
+     * @param drawArea
+     */
     public MenuHandler(MenuEvent menuEvent, Canvas drawArea){
         _eventPath = menuEvent;
         this._da = drawArea;
     }
 
+    /**
+     *
+     */
     public enum MenuEvent{
         BG_COLOR,
-
     }
 
+    /**
+     *
+     */
     public void switchBackgroundColor() { //background aktualisiert nur, wenn drawArea gecleart wird
         if(++_count >= _colors.length) _count = 0;
         //_window.setBackground(_colors[_count]);
@@ -40,6 +53,10 @@ public class MenuHandler implements ActionListener{
         _da.paint(_da.getGraphics()); //meh
     }
 
+    /**
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Action recieved!");
@@ -48,5 +65,4 @@ public class MenuHandler implements ActionListener{
             case default -> System.out.println("The provided MenuEvent has not yet been implemented.");
         }
     }
-
 }

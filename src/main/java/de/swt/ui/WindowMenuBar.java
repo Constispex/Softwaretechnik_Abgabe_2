@@ -1,9 +1,11 @@
 package de.swt.ui;
 
 import de.swt.events.MenuHandler;
-
 import java.awt.*;
 
+/**
+ * creates MenuBar
+ */
 public class WindowMenuBar {
 
     private final Frame _thisWindow;
@@ -14,6 +16,9 @@ public class WindowMenuBar {
         this._drawArea = drawArea;
     }
 
+    /**
+     * display the Menubar
+     */
     public void showMenu() {
         //create a menu bar
         final MenuBar menuBar = new MenuBar();
