@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * creates the Main Window for the DrawArea
  */
-public class MainWindow extends JFrame {
+public class MainWindow extends Frame {
     /**
      * Constructor creates Window with specific Attributes.
      */

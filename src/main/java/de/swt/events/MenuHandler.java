@@ -1,5 +1,7 @@
 package de.swt.events;
 
+import de.swt.ui.DrawArea;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +12,7 @@ import java.awt.event.ActionListener;
 public class MenuHandler implements ActionListener{
 
     private final MenuEvent _eventPath;
-    private final Canvas _da; //meh
+    private final DrawArea _da; //meh
     private final Color[] _colors = {
             Color.LIGHT_GRAY,
             Color.WHITE,
@@ -30,7 +32,7 @@ public class MenuHandler implements ActionListener{
      * @param menuEvent
      * @param drawArea
      */
-    public MenuHandler(MenuEvent menuEvent, Canvas drawArea){
+    public MenuHandler(MenuEvent menuEvent, DrawArea drawArea){
         _eventPath = menuEvent;
         this._da = drawArea;
     }
@@ -40,6 +42,7 @@ public class MenuHandler implements ActionListener{
      */
     public enum MenuEvent{
         BG_COLOR,
+        RADIUS,
     }
 
     /**
@@ -53,6 +56,10 @@ public class MenuHandler implements ActionListener{
         _da.paint(_da.getGraphics()); //meh
     }
 
+    public void showRadiusDialogue(){
+
+    }
+
     /**
      *
      * @param e the event to be processed
@@ -62,6 +69,7 @@ public class MenuHandler implements ActionListener{
         System.out.println("Action recieved!");
         switch(_eventPath){ //Vorbereitung fuer weitere MenuItems
             case BG_COLOR -> switchBackgroundColor();
+            case RADIUS -> showRadiusDialogue();
             case default -> System.out.println("The provided MenuEvent has not yet been implemented.");
         }
     }

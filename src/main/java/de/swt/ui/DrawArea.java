@@ -11,6 +11,16 @@ import java.awt.geom.Ellipse2D;
 public class DrawArea extends Canvas {
     private final MouseHandler MOUSE = new MouseHandler();
 
+    private float _radius;
+
+    public float getRadius() {
+        return _radius;
+    }
+
+    public void setRadius(float _radius) {
+        this._radius = _radius;
+    }
+
     /**
      * Constructor to initialize variables.
      */
@@ -19,6 +29,7 @@ public class DrawArea extends Canvas {
         this.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
         System.out.printf("Draw Area:%nX:%s Y:%s%n", getX(), getY());
+        _radius = 5.0f;
     }
 
 
@@ -38,7 +49,7 @@ public class DrawArea extends Canvas {
             if(point == null) continue;
             g2d.draw(new Ellipse2D.Float(
                     (float) point.x, (float) point.y,
-                    5.0F, 5.0F
+                    _radius, _radius
                     )
             );
             StringBuilder coordinates = new StringBuilder();

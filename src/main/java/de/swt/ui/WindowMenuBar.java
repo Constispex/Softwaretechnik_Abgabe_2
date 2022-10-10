@@ -9,9 +9,9 @@ import java.awt.*;
 public class WindowMenuBar {
 
     private final Frame _thisWindow;
-    private Canvas _drawArea; //meh
+    private DrawArea _drawArea; //meh
 
-    public WindowMenuBar(Frame window, Canvas drawArea){
+    public WindowMenuBar(Frame window, DrawArea drawArea){
         _thisWindow = window;
         this._drawArea = drawArea;
     }
