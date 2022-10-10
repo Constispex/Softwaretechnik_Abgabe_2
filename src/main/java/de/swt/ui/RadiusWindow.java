@@ -16,7 +16,7 @@ public class RadiusWindow extends Dialog {
         Label lRadius = new Label("Radius: ");
         this.add(lRadius);
 
-        // Text Input
+        // Text Input MAC NOT SUPPORTED
         inputField = new TextField();
         inputField.setEditable(true);
         inputField.setLocation(0, 50);

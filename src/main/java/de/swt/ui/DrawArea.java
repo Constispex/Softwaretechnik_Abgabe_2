@@ -13,10 +13,6 @@ public class DrawArea extends Canvas {
 
     private float _radius;
 
-    public float getRadius() {
-        return _radius;
-    }
-
     public void setRadius(float _radius) {
         this._radius = _radius;
     }
@@ -49,7 +45,7 @@ public class DrawArea extends Canvas {
             if(point == null) continue;
             g2d.draw(new Ellipse2D.Float(
                     (float) point.x - _radius, (float) point.y - _radius,
-                    _radius, _radius
+                    _radius * 2, _radius * 2
                     )
             );
             StringBuilder coordinates = new StringBuilder();
