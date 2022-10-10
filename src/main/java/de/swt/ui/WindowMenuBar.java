@@ -28,7 +28,7 @@ public class WindowMenuBar {
         MenuItem changeRadius = new MenuItem("Change Radius");
 
         menuColorCycle.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.BG_COLOR, _drawArea)); //drawArea uebergeben = meh
-        menuColorCycle.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.RADIUS, _drawArea));
+        changeRadius.addActionListener(new MenuHandler(this._thisWindow, MenuHandler.MenuEvent.RADIUS, _drawArea));
 
         settingsMenu.add(menuColorCycle);
         settingsMenu.add(changeRadius);
