@@ -6,11 +6,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MouseHandler extends MouseAdapter {
-
     private static int count = 1;
     public int x;
     public int y;
-
     public int moveX;
     public int moveY;
     @Override

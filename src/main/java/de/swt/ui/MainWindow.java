@@ -16,10 +16,14 @@ public class MainWindow extends JFrame {
     @Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.RED);
+
         this.repaint();
     }
 
+    /**
+     *
+     */
     public void showFrame(){
             this.setVisible(true);
     }

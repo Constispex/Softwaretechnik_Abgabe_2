@@ -6,12 +6,17 @@ import de.swt.ui.MainWindow;
 
 /**
  * Softwaretechnik | Abgabe 2
- * @Author: Johannes Fritzsch
+ * @author: Johannes Fritzsch
+ * @author: Cody Radom
  *
  *
  */
 public class Program {
 
+    /**
+     * Die Main Methode startet das Programm und erzeugt das Fenster.
+     * @param args wird nicht benutzt
+     */
     public static void main(String[] args){
         MainWindowHandler mainWindowHandler = new MainWindowHandler();
 
