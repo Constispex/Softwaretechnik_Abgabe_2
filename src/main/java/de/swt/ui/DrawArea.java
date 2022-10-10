@@ -48,8 +48,8 @@ public class DrawArea extends Canvas {
 
         int dsplyCooX = getWidth() - 80;
         int dsplyCooY = getHeight() - 10;
-        g2d.clearRect(dsplyCooX, dsplyCooY, getWidth(), getHeight());
-
+        g2d.clearRect((int) (getWidth() * 0.8), (int) (getHeight() * 0.95d), getWidth(), getHeight());
+        g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
         g2d.drawString(coordinates1,dsplyCooX, dsplyCooY);
 
     }
