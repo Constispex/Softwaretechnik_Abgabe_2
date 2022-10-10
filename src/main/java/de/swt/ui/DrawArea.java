@@ -9,6 +9,7 @@ public class DrawArea extends Canvas {
 
     public DrawArea(){
         this.addMouseListener(MOUSE);
+        this.setBackground(Color.LIGHT_GRAY);
         //System.out.printf("Draw Area:%nX:%s Y:%s%n", getX(), getY());
     }
 
