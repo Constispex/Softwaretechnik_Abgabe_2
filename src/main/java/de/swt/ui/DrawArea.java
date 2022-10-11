@@ -45,6 +45,7 @@ public class DrawArea extends Canvas {
         }
 
         bindCenters(g2d);
+        tryDisplayDistance(g2d);
 
 
     }
@@ -76,5 +77,12 @@ public class DrawArea extends Canvas {
         g2d.drawRect(startPosition.x, startPosition.y, dimension.width, dimension.height);
         g2d.clearRect(startPosition.x, startPosition.y, dimension.width, dimension.height);
         g2d.drawString(coordinatesStr, startPosition.x, startPosition.y + 15);
+    }
+    private void tryDisplayDistance(Graphics2D g2d) {
+        if (MOUSE.points[0] != null && MOUSE.points[1] != null) {
+            double distance = MOUSE.points[0].distance(MOUSE.points[1]);
+            String strDistance = "Distance = " + Math.round(distance);
+            g2d.drawString(strDistance, 20, getHeight() - 10);
+        }
     }
 }
