@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Handels the backgroundcolor
+ */
 public class BackgroundHandler implements ActionListener {
 
     private Frame _frame;
@@ -24,6 +27,11 @@ public class BackgroundHandler implements ActionListener {
             Color.MAGENTA
     };
 
+    /**
+     * constructor initialize variables
+     * @param _frame main frame
+     * @param drawArea frame to draw
+     */
     public BackgroundHandler(Frame _frame, DrawArea drawArea){
         this._frame = _frame;
         this._da = drawArea;
@@ -33,9 +41,7 @@ public class BackgroundHandler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(++count >= COLORS.length) count = 0;
-        //_window.setBackground(_colors[_count]);
-        //_window.paint(_window.getGraphics());
         _da.setBackground(COLORS[count]);
-        _da.paint(_da.getGraphics()); //meh
+        _da.paint(_da.getGraphics());
     }
 }

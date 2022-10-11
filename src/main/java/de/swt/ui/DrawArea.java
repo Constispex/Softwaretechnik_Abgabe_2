@@ -27,7 +27,6 @@ public class DrawArea extends Canvas {
         _radius = 5.0f;
     }
 
-
     /**
      * Overwrites method paint and creates the DrawArea
      * @param g   the specified Graphics context
@@ -37,17 +36,13 @@ public class DrawArea extends Canvas {
         Graphics2D g2d = (Graphics2D) g;
         clearComponents();
 
-
         for (Point point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
             if(point == null) continue;
             drawEllipseAround(g2d, point);
             drawCoordinates(g2d, point, new Point(getWidth()-100, getHeight()-20), new Dimension(getWidth(), getHeight()));
         }
-
         bindCenters(g2d);
         tryDisplayDistance(g2d);
-
-
     }
 
     /**
@@ -64,6 +59,13 @@ public class DrawArea extends Canvas {
         );
     }
 
+    /**
+     * displays coordinates from one point and clears it before
+     * @param g2d wird uebergeben um die paint Methode zu erweitern
+     * @param point current point
+     * @param startPosition Textbox Startpunkt
+     * @param dimension Textbox field size
+     */
     private void drawCoordinates(Graphics2D g2d, Point point, Point startPosition, Dimension dimension){
         StringBuilder coordinates = new StringBuilder();
         String coordinatesStr = coordinates.append("X: ").append(point.x).append(" Y: ").append(point.y).toString();
@@ -74,6 +76,10 @@ public class DrawArea extends Canvas {
         g2d.drawString(coordinatesStr, startPosition.x, startPosition.y + 15);
     }
 
+    /**
+     *
+     * @param g2d wird uebergeben um die paint Methode zu erweitern
+     */
     private void tryDisplayDistance(Graphics2D g2d) {
         if (MOUSE.points[0] != null && MOUSE.points[1] != null) {
             double distance = MOUSE.points[0].distance(MOUSE.points[1]);
@@ -81,6 +87,11 @@ public class DrawArea extends Canvas {
             g2d.drawString(strDistance, 20, getHeight() - 10);
         }
     }
+
+    /**
+     * if there are 2 points, they will be connected
+     * @param g2d wird uebergeben um die paint Methode zu erweitern
+     */
     private void bindCenters(Graphics2D g2d){
         if(MOUSE.points[0] == null || MOUSE.points[1] == null) return;
         g2d.drawLine(MOUSE.points[0].x, MOUSE.points[0].y, MOUSE.points[1].x, MOUSE.points[1].y);

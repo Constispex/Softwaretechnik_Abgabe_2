@@ -40,6 +40,4 @@ public class WindowMenuBar {
         _thisWindow.setMenuBar(menuBar);
         _thisWindow.setVisible(true);
     }
-
-
 }

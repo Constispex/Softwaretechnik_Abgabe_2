@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 public class MainWindowHandler extends WindowAdapter {
 
     /**
-     *
+     * Funktion zum schliessen des Fensters
      * @param e the event to be processed
      */
     @Override
