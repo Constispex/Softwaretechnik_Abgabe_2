@@ -41,7 +41,7 @@ public class DrawArea extends Canvas {
         int dsplyCooX = getWidth() - 80;
         int dsplyCooY = getHeight() - 10;
 
-        for (Point point : MouseHandler.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
+        for (Point point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
             if(point == null) continue;
             g2d.draw(new Ellipse2D.Float(
                     (float) point.x - _radius, (float) point.y - _radius,
@@ -51,16 +51,19 @@ public class DrawArea extends Canvas {
             String coordinatesStr = "X: " + point.x + " Y: " + point.y;
 
             // Display coordinates and clear old ones
-            g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
+            //g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
             g2d.clearRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
             g2d.drawString(coordinatesStr,dsplyCooX, dsplyCooY);
 
-            // draw lines between two points
-            if (MouseHandler.points[0] != null && MouseHandler.points[1] != null) {
-                Point p1 = MouseHandler.points[0];
-                Point p2 = MouseHandler.points[1];
-                g2d.drawLine((int) p1.getX(), (int) p1.getY(), (int) p2.getX(), (int) p2.getY());
-            }
+            tryDisplayDistance(g2d);
+        }
+    }
+
+    private void tryDisplayDistance(Graphics2D g2d) {
+        if (MOUSE.points[0] != null && MOUSE.points[1] != null) {
+            double distance = MOUSE.points[0].distance(MOUSE.points[1]);
+            String strDistance = "Distance = " + Math.round(distance);
+            g2d.drawString(strDistance, 20, getHeight() - 10);
         }
     }
 

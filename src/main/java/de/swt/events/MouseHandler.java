@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 public class MouseHandler extends MouseAdapter {
 
     private static int count = 1;
-    public static Point[] points = new Point[2];
+    public Point[] points = new Point[2];
 
     /**
      * checks if input is double click.
