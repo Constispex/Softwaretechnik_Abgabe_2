@@ -13,11 +13,11 @@ import java.awt.event.MouseEvent;
 public class MouseHandler extends MouseAdapter {
 
     private static int count = 1;
-    public Point[] points = new Point[2];
+    public static Point[] points = new Point[2];
 
     /**
      * checks if input is double click.
-     * Either saves the points or resets Drawarea and clears Array and set count = 1
+     * Either saves the points or resets DrawArea and clears Array and set count = 1
      * @param e the event to be processed
      */
     @Override

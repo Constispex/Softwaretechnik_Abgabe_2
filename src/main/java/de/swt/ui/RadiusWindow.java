@@ -3,10 +3,19 @@ package de.swt.ui;
 import java.awt.*;
 import java.util.function.IntConsumer;
 
+/**
+ * This class handels the Dialog window where you can change the radius
+ */
 public class RadiusWindow extends Dialog {
     IntConsumer intConsumer;
     TextField inputField;
     Button submit;
+
+    /**
+     * Constructor
+     * @param owner -> Main Frame
+     * @param intConsumer -> serves as radius input
+     */
     public RadiusWindow(Frame owner, IntConsumer intConsumer) {
         super(owner);
         this.intConsumer = intConsumer;
@@ -33,11 +42,5 @@ public class RadiusWindow extends Dialog {
 
         this.setLayout(flowLayout);
         this.setVisible(true);
-    }
-
-    @Override
-    public void paint(Graphics g) {
-
-        super.paint(g);
     }
 }
