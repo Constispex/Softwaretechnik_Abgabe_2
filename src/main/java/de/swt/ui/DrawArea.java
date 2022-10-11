@@ -57,11 +57,6 @@ public class DrawArea extends Canvas {
         getGraphics().clearRect(0, 0, getWidth(), getHeight());
     }
 
-    private void bindCenters(Graphics2D g2d){
-        if(MOUSE.points[0] == null || MOUSE.points[1] == null) return;
-        g2d.drawLine(MOUSE.points[0].x, MOUSE.points[0].y, MOUSE.points[1].x, MOUSE.points[1].y);
-    }
-
     private void drawEllipseAround(Graphics2D g2d, Point point){
         g2d.draw(new Ellipse2D.Float(
                 (float) point.x - _radius, (float) point.y - _radius,
@@ -78,11 +73,16 @@ public class DrawArea extends Canvas {
         g2d.clearRect(startPosition.x, startPosition.y, dimension.width, dimension.height);
         g2d.drawString(coordinatesStr, startPosition.x, startPosition.y + 15);
     }
+
     private void tryDisplayDistance(Graphics2D g2d) {
         if (MOUSE.points[0] != null && MOUSE.points[1] != null) {
             double distance = MOUSE.points[0].distance(MOUSE.points[1]);
             String strDistance = "Distance = " + Math.round(distance);
             g2d.drawString(strDistance, 20, getHeight() - 10);
         }
+    }
+    private void bindCenters(Graphics2D g2d){
+        if(MOUSE.points[0] == null || MOUSE.points[1] == null) return;
+        g2d.drawLine(MOUSE.points[0].x, MOUSE.points[0].y, MOUSE.points[1].x, MOUSE.points[1].y);
     }
 }
