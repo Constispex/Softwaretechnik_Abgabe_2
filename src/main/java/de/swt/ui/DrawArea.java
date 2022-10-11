@@ -10,7 +10,6 @@ import java.awt.geom.Ellipse2D;
  */
 public class DrawArea extends Canvas {
     private final MouseHandler MOUSE = new MouseHandler();
-
     private float _radius;
 
     public void setRadius(float _radius) {
@@ -38,24 +37,16 @@ public class DrawArea extends Canvas {
         Graphics2D g2d = (Graphics2D) g;
         clearComponents();
 
-        int dsplyCooX = getWidth() - 80;
-        int dsplyCooY = getHeight() - 10;
 
         for (Point point : MOUSE.points) { //Abfrage gespeicherter Punkte (Punkte bei 00 werden nicht gezeichnet)
             if(point == null) continue;
-            g2d.draw(new Ellipse2D.Float(
-                    (float) point.x - _radius, (float) point.y - _radius,
-                    _radius * 2, _radius * 2
-                    )
-            );
-            StringBuilder coordinates = new StringBuilder();
-            String coordinatesStr = coordinates.append("X: ").append(point.x).append(" Y: ").append(point.y).toString();
-
-            // Display coordinates and clear old ones
-            g2d.drawRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
-            g2d.clearRect(dsplyCooX,dsplyCooY - 10, getWidth(), getHeight());
-            g2d.drawString(coordinatesStr,dsplyCooX, dsplyCooY);
+            drawEllipseAround(g2d, point);
+            drawCoordinates(g2d, point, new Point(getWidth()-100, getHeight()-20), new Dimension(getWidth(), getHeight()));
         }
+
+        bindCenters(g2d);
+
+
     }
 
     /**
@@ -63,5 +54,27 @@ public class DrawArea extends Canvas {
      */
     public void clearComponents(){
         getGraphics().clearRect(0, 0, getWidth(), getHeight());
+    }
+
+    private void bindCenters(Graphics2D g2d){
+        if(MOUSE.points[0] == null || MOUSE.points[1] == null) return;
+        g2d.drawLine(MOUSE.points[0].x, MOUSE.points[0].y, MOUSE.points[1].x, MOUSE.points[1].y);
+    }
+
+    private void drawEllipseAround(Graphics2D g2d, Point point){
+        g2d.draw(new Ellipse2D.Float(
+                (float) point.x - _radius, (float) point.y - _radius,
+                _radius * 2, _radius * 2)
+        );
+    }
+
+    private void drawCoordinates(Graphics2D g2d, Point point, Point startPosition, Dimension dimension){
+        StringBuilder coordinates = new StringBuilder();
+        String coordinatesStr = coordinates.append("X: ").append(point.x).append(" Y: ").append(point.y).toString();
+
+        // Display coordinates and clear old ones
+        g2d.drawRect(startPosition.x, startPosition.y, dimension.width, dimension.height);
+        g2d.clearRect(startPosition.x, startPosition.y, dimension.width, dimension.height);
+        g2d.drawString(coordinatesStr, startPosition.x, startPosition.y + 15);
     }
 }
